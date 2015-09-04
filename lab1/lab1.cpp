@@ -2,6 +2,7 @@
 // CS116 Ron Sha
 
 #include <iostream>
+#include <iomanip>
 #include <string>
  
 using namespace std;
@@ -10,36 +11,38 @@ double finalpay(double, double);
 
 int main ()
 {	
-	cout << "BRISEBOIS, GREGORY - CS116 FALL 2015" << endl;
-	cout << "---" << endl;
-	cout << "Welcome! Please enter employee first name: ";
-	
+	// Set up some initial variables
 	string fname, lname;
 	double salary = 0, hours = 0;
 	
+	// Print initial info screen
+	cout << "BRISEBOIS, GREGORY - CS116 FALL 2015" << endl;
+	cout << "---" << endl;
+	
+	// Get inputs
+	cout << "Welcome! Please enter employee first name: ";
 	cin >> fname;
 	
 	cout << "Please enter last name: ";
-	
 	cin >> lname;
 	
 	cout << "Please enter hourly salary: $";
-	
 	cin >> salary;
 	
 	cout << "Please enter hours worked: ";
-	
 	cin >> hours;
 	
 	cout << "---" << endl;
 	
-	cout << "Payroll Information" << endl;
-	cout << "Name: " << fname << " " << lname << endl;
-	cout << "Wage: $" << salary << "/hour" << endl;
-	cout << "Hours Worked: " << hours << endl;
-	cout << "Overtime Hours Worked: " << ((hours > 40) ? (hours - 40) : 0) << endl;
-	cout << "Pay: $" << finalpay(salary, hours) << endl;
-	cout << "Approved By: Gregory Brisebois" << endl;
+	// Print outputs
+	cout << "* Payroll Information" << endl;
+	cout << "* Name: " << fname << " " << lname << endl;
+	cout << "* Wage: $" << fixed << setprecision(2) << salary << "/hour" << endl;
+	cout << "* Hours Worked: " << hours << endl;
+	cout << "* Pay: $" << fixed << setprecision(2) << finalpay(salary, hours) << endl;
+	cout << setw(20) << "* Approved By: Gregory Brisebois" << endl;
+	
+	cout << "---" << endl;
 }
 
 // Gets the pay amount accounting for overtime
