@@ -11,6 +11,15 @@ Wine::Wine()
 	wineary = "newwineary";
 }
 
+Wine::Wine(std::string newWineName, int newVintage, int newRating, double newPrice, std::string newWineary)
+{
+	name = newWineName;
+	vintage = newVintage;
+	rating = newRating;
+	price = newPrice;
+	wineary = newWineary;
+}
+
 // Mutators
 void Wine::setName(std::string newName)
 {

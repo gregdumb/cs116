@@ -12,7 +12,7 @@ class Wine
 {
 public:
 	Wine(double price, std::string name);
-	Wine(std::string newWineName, int newVintage, int newScore, double newPrice, std::string newWineary);
+	Wine(std::string newWineName, int newVintage, int newRating, double newPrice, std::string newWineary);
 	Wine();
 	
 	// Mutators
