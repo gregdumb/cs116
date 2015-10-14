@@ -2,6 +2,7 @@
 #include "wine.h"
 
 // Constructors
+
 Wine::Wine()
 {
 	name = "newwine";
@@ -21,16 +22,20 @@ Wine::Wine(std::string newWineName, int newVintage, int newRating, double newPri
 }
 
 // Mutators
+
+// Change the name
 void Wine::setName(std::string newName)
 {
 	name = newName;
 }
 
+// Change the vintage
 void Wine::setVintage(int newVintage)
 {
 	vintage = newVintage;
 }
 
+// Change name, price, and rating all at once
 void Wine::setInfo(std::string newName, double newPrice, int newRating)
 {
 	name = newName;
@@ -39,26 +44,32 @@ void Wine::setInfo(std::string newName, double newPrice, int newRating)
 }
 
 // Accessors
+
+// get the name
 std::string Wine::getName()
 {
 	return name;
 }
 
+// get the vintage
 int Wine::getVintage()
 {
 	return vintage;
 }
 
+// get the rating
 int Wine::getRating()
 {
 	return rating;
 }
 
+// get the price
 double Wine::getPrice()
 {
 	return price;
 }
 
+// get the wineary
 std::string Wine::getWineary()
 {
 	return wineary;
