@@ -7,7 +7,7 @@ echo "Building project..."
 	while true; do
 		read -p "Execute the program now? " yn
 		case $yn in
-			[Yy]* ) cat "input.txt" | ./lab4.out; break;;
+			[Yy]* ) cat "input.txt | ./lab4.out; break;;
 			[Nn]* ) exit;;
 			* ) exit;;
 		esac
