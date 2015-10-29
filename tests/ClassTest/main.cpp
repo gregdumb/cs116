@@ -5,12 +5,9 @@ using namespace std;
 
 int main()
 {
-	testClass *myClass = new testClass;
+	testClass myClass;
+	newClass myNewClass;
 	
-	if(myClass)
-		myClass->printHello();
-	else
-		cout << "it is NULL" << endl;
-		
-	cout << &myClass << endl;
+	cout << myClass.testInt << endl;
+	cout << myNewClass.testInt << endl;
 }
