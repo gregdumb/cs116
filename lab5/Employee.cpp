@@ -1,11 +1,65 @@
-#include "Employee.h"
+#include <iostream>
+#include <string>
 
-void Employee::set_salary(double new_salary)
-{ 
-   salary = new_salary;
+using namespace std;
+
+// *************************************************
+// Employee Class
+
+class Employee
+{
+public:
+	// Constructors
+	Employee();
+	Employee(string initialName, double initialSalary);
+	
+	double getSalary() const;
+	
+	void setSalary(double newSalary);
+	string getName() const;
+
+private:
+
+	string name;
+	double salary;
+};
+
+// Default Constructor
+Employee::Employee()
+{
+	name = "";
+	salary = 0;
 }
 
-string Employee::get_name() const
-{ 
-   return name;
+// Custom Constructor
+Employee::Employee(string initialName, double initialSalary)
+{
+	name = initialName;
+	salary = initialSalary;
+}
+
+void Employee::setSalary(double newSalary)
+{
+	salary = newSalary;
+}
+
+double Employee::getSalary() const
+{
+	return salary;
+}
+
+string Employee::getName() const
+{
+	return name;
+}
+
+// *************************************************
+// Manager Class
+
+class Manager : public Employee
+{
+};
+
+int main()
+{
 }
