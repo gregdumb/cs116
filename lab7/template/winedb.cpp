@@ -105,6 +105,32 @@ string getSortFromInt(int sortInt)
 		case 3:
 			return "order by vintage";
 			break;
+			
+		case 4:
+			return "order by wineType, vintage";
+			break;
+	}
+}
+
+// Returns the mySQL code from the user's entered int
+// @param sortInt - user entered choice
+// @return - string of SQL
+
+string getTypeFromInt(int typeInt)
+{
+	switch(typeInt)
+	{
+		case 0:
+			return "";
+			break;
+		
+		case 1:
+			return " and wineType = 'White'";
+			break;
+			
+		case 2:
+			return " and wineType = 'Red'";
+			break;
 	}
 }
 
@@ -124,12 +150,14 @@ string getSqlStatement()
 	int yearMin = getValidIntInput("Enter minimum vintage: ", 1900, 2015);
 	int yearMax = getValidIntInput("Enter maximum vintage: ", yearMin, 2015);
 	
-	string sortType = getSortFromInt( getValidIntInput("\nHow would you like to sort?\n0 = by name only; 1 = by price, then name;\n2 = by rating, then name; 3 = by vintage, then name: ", 0, 3) );
+	string wineType = getTypeFromInt( getValidIntInput("\nWhat wine types would you like? 0 = all; 1 = white; 2 = red: ", 0, 2) );
+	
+	string sortType = getSortFromInt( getValidIntInput("\nHow would you like to sort?\n0 = by name only;\n1 = by price, then name;\n2 = by rating, then name;\n3 = by vintage, then name;\n4 = by type, then vintage:  ", 0, 4) );
 	
 	string statement = "select * from wineInfo where price >= " + to_string(priceMin) + " and price <= " + to_string(priceMax) +
 												" and rating >= " + to_string(scoreMin) + " and rating <= " + to_string(scoreMax) +
 												" and vintage >= " + to_string(yearMin) + " and vintage <= " + to_string(yearMax) +
-												" " + sortType + ", winename;";
+												wineType + " " + sortType + ", winename;";
 	
 	return statement;
 }
